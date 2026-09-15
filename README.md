@@ -10,8 +10,8 @@
 |---|---|
 | **Team Name** | NovaSquad |
 | **Track** | AI |
-| **Team Lead** | Madhav Gandhi |
-| **Members** | Madhav Gandhi and Team NovaSquad |
+| **Team Lead** | Yash Bhanderi |
+| **Members** | Yash Bhanderi and Team NovaSquad |
 
 ---
 
