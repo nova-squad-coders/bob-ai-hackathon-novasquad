@@ -1,0 +1,5 @@
+.DS_Store
+node_modules/
+*.log
+.vscode/
+js/copilot/config.local.js

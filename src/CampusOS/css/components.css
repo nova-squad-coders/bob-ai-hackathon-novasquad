@@ -1,0 +1,188 @@
+/* components.css — shared building blocks every module reuses. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 160ms ease, border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); filter: brightness(0.96); }
+
+.btn--primary {
+  background: var(--accent);
+  color: #241705;
+}
+
+.btn--primary:hover { box-shadow: 0 8px 20px -8px rgba(217, 154, 63, 0.65); }
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--surface-border);
+  color: var(--ink-soft);
+}
+
+.btn--ghost:hover { color: var(--ink); border-color: var(--ink-faint); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.badge--accent { background: rgba(217, 154, 63, 0.16); color: var(--accent-strong); }
+.badge--success { background: rgba(95, 143, 116, 0.16); color: var(--success); }
+.badge--danger { background: rgba(193, 87, 63, 0.16); color: var(--danger); }
+.badge--info { background: rgba(79, 126, 168, 0.16); color: var(--info); }
+.badge--neutral { background: var(--bg-inset); color: var(--ink-soft); }
+
+/* ---------- Empty state ----------
+ * Used by every widget/module when it genuinely has no data yet — never
+ * render a zero-filled chart or stat block (spec Instruction 4/Note 11). */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-1);
+  color: var(--ink-faint);
+}
+
+.empty-state__title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.empty-state__body {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  max-width: 40ch;
+}
+
+.empty-state__action {
+  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.search-result:hover { background: var(--bg-inset); }
+
+.toast-stack {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  z-index: 100;
+  max-width: 340px;
+}
+
+.toast {
+  /* Use --ink as background so the toast is always high-contrast in both
+     light (dark ink bg + light text) and dark (light ink bg + dark text) mode.
+     Previously used --sidebar-bg which is beige in light mode, making
+     white text nearly illegible. */
+  background: var(--ink);
+  color: var(--bg);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  box-shadow: var(--shadow-pop);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard);
+  border-left: 3px solid var(--info);
+  cursor: pointer;
+}
+
+.toast--visible { opacity: 1; transform: translateY(0); }
+.toast--success { border-left-color: var(--success); }
+.toast--error { border-left-color: var(--danger); }
+
+/* ---------- Modal shell (used by future modules; kept here so no module
+   has to reinvent dialog markup — spec Instruction 5/12 rule out alert()) --------- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 14, 23, 0.55);
+  backdrop-filter: blur(3px);
+  display: grid;
+  place-items: center;
+  padding: var(--space-5);
+  z-index: 80;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.modal-overlay.is-open { opacity: 1; pointer-events: auto; }
+
+.modal {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop);
+  width: 100%;
+  max-width: 480px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: var(--space-6);
+  transform: translateY(22px) scale(0.93);
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.is-open .modal { transform: translateY(0) scale(1); }
+
+.modal__title {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+}
+
+.modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--space-4);
+}
+
+.field label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Achievements — CampusOS</title>
+  <link rel="stylesheet" href="../css/tokens.css?v=5" />
+  <link rel="stylesheet" href="../css/base.css?v=5" />
+  <link rel="stylesheet" href="../css/components.css?v=5" />
+  <link rel="stylesheet" href="../css/page.css?v=5" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="app-sidebar" aria-label="Module navigation"></aside>
+
+    <div class="app-main">
+      <header class="topbar" id="app-topbar"></header>
+
+      <main class="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header__title">Achievements</h1>
+            <p class="page-header__subtitle">Your personal vault — nothing gets forgotten by resume time.</p>
+          </div>
+          <button class="btn btn--primary" id="ach-add-btn">+ Add achievement</button>
+        </div>
+
+        <div class="toolbar">
+          <div class="toolbar__search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="search" id="ach-search" placeholder="Search achievements…" />
+          </div>
+          <select class="filter-select" id="ach-filter-category"></select>
+        </div>
+
+        <div class="grid" id="ach-grid"></div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../js/achievements/index.js?v=5"></script>
+</body>
+</html>

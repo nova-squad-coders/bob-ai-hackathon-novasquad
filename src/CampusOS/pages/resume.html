@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Builder — CampusOS</title>
+  <link rel="stylesheet" href="../css/tokens.css?v=5" />
+  <link rel="stylesheet" href="../css/base.css?v=5" />
+  <link rel="stylesheet" href="../css/components.css?v=5" />
+  <link rel="stylesheet" href="../css/page.css?v=5" />
+  <link rel="stylesheet" href="../css/resume.css?v=5" />
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="app-sidebar" aria-label="Module navigation"></aside>
+
+    <div class="app-main">
+      <header class="topbar" id="app-topbar"></header>
+
+      <main class="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header__title">Resume Builder</h1>
+            <p class="page-header__subtitle" id="resume-progress-note">Build your profile gradually — nothing is required up front.</p>
+          </div>
+          <div style="text-align:right;">
+            <button class="btn btn--primary" id="resume-download-btn">Download PDF</button>
+            <p style="font-size:var(--text-xs);color:var(--ink-faint);margin-top:6px;max-width:220px;">Generates a real PDF file — works on desktop and mobile.</p>
+          </div>
+        </div>
+
+        <div class="resume-layout">
+          <div class="resume-editor">
+            <div class="card editor-section">
+              <div class="editor-section__head"><span class="editor-section__title">Personal details</span>
+                <button class="btn btn--ghost" id="edit-personal-btn">Edit</button></div>
+              <p class="editor-section__hint">Name, location, phone, email.</p>
+            </div>
+
+            <div class="card editor-section">
+              <div class="editor-section__head"><span class="editor-section__title">Online profiles</span>
+                <button class="btn btn--ghost" id="edit-online-btn">Edit</button></div>
+              <p class="editor-section__hint">GitHub, LinkedIn, portfolio.</p>
+            </div>
+
+            <div class="card editor-section">
+              <div class="editor-section__head"><span class="editor-section__title">Profile</span>
+                <button class="btn btn--ghost" id="edit-about-btn">Edit</button></div>
+              <p class="editor-section__hint">Objective, about, interests.</p>
+            </div>
+
+            <div class="card editor-section">
+              <div class="editor-section__head"><span class="editor-section__title">Schooling</span>
+                <button class="btn btn--ghost" id="add-school-btn">+ Add</button></div>
+              <div id="school-list" style="display:flex;flex-direction:column;gap:6px;margin-top:6px;"></div>
+            </div>
+
+            <div class="card editor-section">
+              <div class="editor-section__head"><span class="editor-section__title">Education</span>
+                <button class="btn btn--ghost" id="add-education-btn">+ Add</button></div>
+              <div id="education-list" style="display:flex;flex-direction:column;gap:6px;margin-top:6px;"></div>
+            </div>
+
+            <div class="card editor-section">
+              <div class="editor-section__head"><span class="editor-section__title">Projects</span>
+                <button class="btn btn--ghost" id="add-project-btn">+ Add</button></div>
+              <div id="project-list" style="display:flex;flex-direction:column;gap:6px;margin-top:6px;"></div>
+            </div>
+
+            <div class="card editor-section">
+              <div class="editor-section__head"><span class="editor-section__title">Skills</span>
+                <button class="btn btn--ghost" id="edit-skills-btn">Edit</button></div>
+              <p class="editor-section__hint">Programming languages, tools, other skills.</p>
+            </div>
+
+            <div class="card editor-section">
+              <div class="editor-section__head"><span class="editor-section__title">Achievements</span>
+                <div style="display:flex;gap:6px;">
+                  <button class="btn btn--ghost" id="add-custom-achievement-btn">+ Add</button>
+                  <button class="btn btn--ghost" id="edit-achievements-btn">From vault</button>
+                </div></div>
+              <p class="editor-section__hint">Add one directly, or pull saved ones in from your Achievements vault.</p>
+              <div id="custom-achievement-list" style="display:flex;flex-direction:column;gap:6px;margin-top:6px;"></div>
+            </div>
+
+            <div class="card editor-section">
+              <div class="editor-section__head"><span class="editor-section__title">Languages</span>
+                <button class="btn btn--ghost" id="edit-languages-btn">Edit</button></div>
+              <p class="editor-section__hint">Languages you speak.</p>
+            </div>
+          </div>
+
+          <div class="card resume-preview-wrap">
+            <div id="resume-preview"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../js/resume/index.js?v=5"></script>
+</body>
+</html>

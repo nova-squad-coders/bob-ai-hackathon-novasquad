@@ -1,0 +1,150 @@
+/**
+ * tokens.css — the design system's single source of truth.
+ *
+ * Palette rationale: CampusOS reads as a study desk, not a SaaS dashboard —
+ * an ink-blue base (evokes a notebook cover / ruled page) with a warm
+ * brass/amber accent (a highlighter, a desk lamp), rather than the usual
+ * cream+terracotta or near-black+neon defaults. Status colors are muted,
+ * not neon, so the dashboard stays calm even when it's busy.
+ */
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: local('Space Grotesk');
+}
+
+:root {
+  /* Type */
+  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: 2.9rem;
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* Spacing (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --sidebar-width: 248px;
+  --topbar-height: 68px;
+  --content-max: 1180px;
+
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 140ms;
+  --duration-base: 220ms;
+
+  /* Semantic accents (theme-independent hues) */
+  --accent: #d99a3f;
+  --accent-strong: #b9792a;
+  --success: #5f8f74;
+  --danger: #c1573f;
+  --info: #4f7ea8;
+}
+
+/* ---------- Light theme (default) ---------- */
+:root,
+[data-theme='light'] {
+  --bg: #f4f2ec;
+  --bg-elevated: #fffdf9;
+  --bg-inset: #ece8de;
+  --surface: #ffffff;
+  --surface-border: #e3ddcd;
+
+  --ink: #1c2333;
+  --ink-soft: #4a5164;
+  --ink-faint: #838a9c;
+
+  --sidebar-bg: #eee9db;
+  --sidebar-ink: #1c2333;
+  --sidebar-ink-muted: #767c92;
+  --sidebar-active-bg: #e2dbc4;
+  --sidebar-border: #e3ddcd;
+
+  --shadow-card: 0 1px 2px rgba(28, 35, 51, 0.06), 0 10px 24px -12px rgba(28, 35, 51, 0.16);
+  --shadow-pop: 0 20px 45px -18px rgba(28, 35, 51, 0.35);
+}
+
+/* ---------- Dark theme ---------- */
+[data-theme='dark'] {
+  --bg: #10131e;
+  --bg-elevated: #171b29;
+  --bg-inset: #0c0e17;
+  --surface: #191d2c;
+  --surface-border: #2a3044;
+
+  --ink: #ecebe4;
+  --ink-soft: #b6b9c9;
+  --ink-faint: #767c92;
+
+  --sidebar-bg: #0c0e17;
+  --sidebar-ink: #d9dcea;
+  --sidebar-ink-muted: #6b7189;
+  --sidebar-active-bg: #1d2236;
+  --sidebar-border: #232840;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px -14px rgba(0, 0, 0, 0.6);
+  --shadow-pop: 0 24px 50px -18px rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- Motion primitives ----------
+ * Shared entrance/press motion used across every page so nothing simply
+ * "pops" — cards, list rows, and grid items fade + rise in on load, and
+ * staggering (--stagger, set inline per item) keeps groups from all
+ * animating in unison like a single flat flash. */
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-in {
+  animation: rise-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--stagger, 0) * 45ms);
+}
+
+.page-content {
+  animation: fade-in 320ms ease-out both;
+}

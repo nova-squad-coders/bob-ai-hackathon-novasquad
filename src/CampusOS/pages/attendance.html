@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance — CampusOS</title>
+  <link rel="stylesheet" href="../css/tokens.css?v=5" />
+  <link rel="stylesheet" href="../css/base.css?v=5" />
+  <link rel="stylesheet" href="../css/components.css?v=5" />
+  <link rel="stylesheet" href="../css/page.css?v=5" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="app-sidebar" aria-label="Module navigation"></aside>
+
+    <div class="app-main">
+      <header class="topbar" id="app-topbar"></header>
+
+      <main class="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header__title">Attendance</h1>
+            <p class="page-header__subtitle">Your own subjects, your own required percentage — no assumptions.</p>
+          </div>
+          <button class="btn btn--primary" id="att-add-btn">+ Add subject</button>
+        </div>
+
+        <div class="grid" id="att-grid"></div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../js/attendance/index.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+/* resume.css — editor/preview split, and the resume document itself
+   (used both on-screen inside the preview card and via @media print). */
+
+.resume-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.resume-editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.editor-section {
+  padding: var(--space-4) var(--space-5);
+}
+
+.editor-section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.editor-section__title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.editor-section__hint {
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+  line-height: var(--leading-relaxed);
+}
+
+.resume-preview-wrap {
+  padding: var(--space-8);
+  background: var(--bg-inset);
+  display: flex;
+  justify-content: center;
+}
+
+#resume-preview {
+  background: #ffffff;
+  color: #262b3a;
+  padding: 56px 60px;
+  width: 100%;
+  max-width: 720px;
+  min-height: 960px;
+  box-shadow: var(--shadow-pop);
+  border-radius: 3px;
+  font-family: 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+  border-top: 5px solid var(--accent-strong);
+}
+
+.r-header { padding-bottom: 20px; margin-bottom: 26px; border-bottom: 1px solid #e3ddcd; }
+.r-name { font-size: 34px; font-family: inherit; letter-spacing: 0.005em; margin-bottom: 11px; font-weight: 700; color: #1c2333; }
+.r-tagline { font-size: 14px; font-style: italic; color: #6b7280; margin-bottom: 12px; font-family: var(--font-body); }
+.r-contact { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: #4a5164; font-family: var(--font-body); }
+.r-contact--empty { font-style: italic; color: #9aa0b0; }
+.r-contact__item { display: inline-flex; align-items: center; gap: 5px; }
+.r-contact__item svg { color: var(--accent-strong); flex-shrink: 0; }
+
+.r-section { margin-bottom: 24px; }
+.r-section h2 {
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 13px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--accent-strong);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.r-section h2::after { content: ''; flex: 1; height: 1px; background: #e3ddcd; }
+.r-section p { font-size: 13.5px; line-height: 1.7; color: #333a4a; }
+
+.r-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.r-tag {
+  font-size: 12px; font-family: var(--font-body); padding: 4px 12px;
+  border-radius: 999px; background: #f6f1e4; color: #6b4f1f; border: 1px solid #e9dfc4;
+}
+
+.r-item { margin-bottom: 16px; }
+.r-item:last-child { margin-bottom: 0; }
+.r-item__row { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; gap: 12px; }
+.r-item__row strong { color: #1c2333; }
+.r-item__row span { font-size: 12px; color: #7a8094; white-space: nowrap; }
+.r-item__sub { font-size: 12.5px; color: #6b7280; font-style: italic; margin-top: 2px; }
+.r-item p { margin-top: 5px; font-size: 13px; }
+
+@media (max-width: 1000px) {
+  .resume-layout { grid-template-columns: 1fr; }
+}
+
+/* ---------- Print: only the resume document should print ---------- */
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  .sidebar, .topbar, .page-header, .resume-editor, #resume-download-btn,
+  .toast-stack, .modal-overlay {
+    display: none !important;
+  }
+  .page-content, .resume-layout, .resume-preview-wrap { padding: 0 !important; margin: 0 !important; background: #fff !important; }
+  #resume-preview { box-shadow: none !important; margin: 0 !important; max-width: none !important; }
+  body { background: #fff !important; }
+}

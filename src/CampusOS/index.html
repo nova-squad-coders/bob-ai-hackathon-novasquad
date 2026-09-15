@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — CampusOS</title>
+  <meta name="description" content="CampusOS — a local-first workspace for college life." />
+  <link rel="stylesheet" href="css/tokens.css?v=5" />
+  <link rel="stylesheet" href="css/base.css?v=5" />
+  <link rel="stylesheet" href="css/components.css?v=5" />
+  <link rel="stylesheet" href="css/dashboard.css?v=5" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="app-sidebar" aria-label="Module navigation"></aside>
+
+    <div class="app-main">
+      <header class="topbar" id="app-topbar"></header>
+
+      <main class="page-content" id="main-content">
+        <div class="dash-header">
+          <div>
+            <h1 class="dash-header__greeting" id="dash-greeting">Good morning.</h1>
+            <p class="dash-header__date" id="dash-date"></p>
+          </div>
+        </div>
+
+        <section class="dash-hero" id="dash-hero" aria-label="Quick stats"></section>
+
+        <section class="dash-grid" aria-label="Overview">
+          <div class="card widget widget--today">
+            <div class="widget__header"><span class="widget__icon" data-icon="check-square"></span><span class="widget__title">Today</span></div>
+            <div id="widget-today-body"></div>
+          </div>
+
+          <div class="card widget widget--upcoming">
+            <div class="widget__header"><span class="widget__icon" data-icon="calendar-check"></span><span class="widget__title">Upcoming</span></div>
+            <div id="widget-upcoming-body"></div>
+          </div>
+
+          <div class="card widget widget--money">
+            <div class="widget__header"><span class="widget__icon" data-icon="wallet"></span><span class="widget__title">Money</span></div>
+            <div id="widget-money-body"></div>
+          </div>
+
+          <div class="card widget widget--academics">
+            <div class="widget__header"><span class="widget__icon" data-icon="trending-up"></span><span class="widget__title">Academics</span></div>
+            <div id="widget-academics-body"></div>
+          </div>
+
+          <div class="card widget widget--achievements">
+            <div class="widget__header"><span class="widget__icon" data-icon="award"></span><span class="widget__title">Achievements</span></div>
+            <div id="widget-achievements-body"></div>
+          </div>
+
+          <div class="card widget widget--library">
+            <div class="widget__header"><span class="widget__icon" data-icon="book-open"></span><span class="widget__title">Library</span></div>
+            <div id="widget-library-body"></div>
+          </div>
+
+          <div class="card widget widget--attendance" id="widget-attendance">
+            <div class="widget__header"><span class="widget__icon" data-icon="calendar-check"></span><span class="widget__title">Attendance</span></div>
+            <div id="widget-attendance-body"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="js/dashboard/index.js?v=5"></script>
+</body>
+</html>

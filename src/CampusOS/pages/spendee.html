@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spendee — CampusOS</title>
+  <link rel="stylesheet" href="../css/tokens.css?v=5" />
+  <link rel="stylesheet" href="../css/base.css?v=5" />
+  <link rel="stylesheet" href="../css/components.css?v=5" />
+  <link rel="stylesheet" href="../css/page.css?v=5" />
+  <link rel="stylesheet" href="../css/dashboard.css?v=5" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="app-sidebar" aria-label="Module navigation"></aside>
+
+    <div class="app-main">
+      <header class="topbar" id="app-topbar"></header>
+
+      <main class="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header__title">Spendee</h1>
+            <p class="page-header__subtitle">Money I spent, money I received, and who owes who.</p>
+          </div>
+        </div>
+
+        <div class="tabs" style="margin-bottom:var(--space-6);width:fit-content;">
+          <button class="tab is-active" data-tab="overview">Overview</button>
+          <button class="tab" data-tab="transactions">Transactions</button>
+          <button class="tab" data-tab="debts">Owed &amp; Owing</button>
+          <button class="tab" data-tab="budgets">Budgets</button>
+        </div>
+
+        <section data-panel="overview" id="spendee-overview"></section>
+
+        <section data-panel="transactions" hidden>
+          <div class="toolbar">
+            <div class="toolbar__search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="search" id="tx-search" placeholder="Search transactions…" />
+            </div>
+            <select class="filter-select" id="tx-filter-type">
+              <option value="all">All types</option>
+              <option value="expense">Expense</option>
+              <option value="income">Income</option>
+            </select>
+            <select class="filter-select" id="tx-filter-category"></select>
+            <button class="btn btn--ghost" id="tx-add-category-btn">+ Category</button>
+            <button class="btn btn--primary" id="tx-add-btn" style="margin-left:auto;">+ New transaction</button>
+          </div>
+          <div class="list" id="tx-list"></div>
+        </section>
+
+        <section data-panel="debts" hidden>
+          <div class="toolbar">
+            <select class="filter-select" id="debt-filter-direction">
+              <option value="all">All debts</option>
+              <option value="owed_to_me">Owed to me</option>
+              <option value="i_owe">I owe</option>
+            </select>
+            <select class="filter-select" id="debt-filter-settled">
+              <option value="unsettled">Unsettled</option>
+              <option value="settled">Settled</option>
+              <option value="all">All</option>
+            </select>
+            <button class="btn btn--primary" id="debt-add-btn" style="margin-left:auto;">+ Add debt</button>
+          </div>
+          <div class="list" id="debt-list"></div>
+        </section>
+
+        <section data-panel="budgets" hidden>
+          <p style="font-size:var(--text-sm);color:var(--ink-faint);margin-bottom:var(--space-5);max-width:520px;">
+            Set a monthly limit per category and see how this month's spending compares as you go — no manual tracking needed.
+          </p>
+          <div class="list" id="budget-list"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../js/spendee/index.js?v=5"></script>
+</body>
+</html>

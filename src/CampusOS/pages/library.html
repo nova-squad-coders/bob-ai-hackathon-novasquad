@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Library — CampusOS</title>
+  <link rel="stylesheet" href="../css/tokens.css?v=5" />
+  <link rel="stylesheet" href="../css/base.css?v=5" />
+  <link rel="stylesheet" href="../css/components.css?v=5" />
+  <link rel="stylesheet" href="../css/page.css?v=5" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="app-sidebar" aria-label="Module navigation"></aside>
+
+    <div class="app-main">
+      <header class="topbar" id="app-topbar"></header>
+
+      <main class="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header__title">Digital Library</h1>
+            <p class="page-header__subtitle" id="lib-storage-note">All your study material, in one place.</p>
+          </div>
+          <button class="btn btn--primary" id="lib-add-btn">+ Add material</button>
+        </div>
+
+        <div class="toolbar">
+          <div class="toolbar__search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="search" id="lib-search" placeholder="Search by title, subject, tag…" />
+          </div>
+          <select class="filter-select" id="lib-filter-subject"><option value="all">All subjects</option></select>
+          <select class="filter-select" id="lib-filter-type">
+            <option value="all">All types</option>
+            <option>Notes</option><option>PDF</option><option>Practice Questions</option>
+            <option>Flowchart</option><option>Mind Map</option><option>Textbook</option><option>Other</option>
+          </select>
+        </div>
+
+        <div class="grid" id="lib-grid"></div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../js/library/index.js?v=5"></script>
+</body>
+</html>
