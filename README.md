@@ -1,4 +1,4 @@
-# 🚀 [Your Project Title Here]
+# 🚀 [CampusOS Copilot]
 
 > ⚠️ **Replace everything in `[ ]` brackets with your actual content before submission.**
 
@@ -8,7 +8,7 @@
 
 | Field | Value |
 |---|---|
-| **Team Name** | [Your Team Name] |
+| **Team Name** | [NovaSquad] |
 | **Track** | [AI / DevOps / Sustainability / Open] |
 | **Team Lead** | [Name] — [email@ibm.com] |
 | **Members** | [Name 1], [Name 2], [Name 3] |
@@ -19,7 +19,7 @@
 
 > In 2–3 sentences: What problem does your project solve? Who experiences this problem?
 
-[Describe the real-world problem your project addresses. Be specific about who the user is and what pain point they face.]
+Students have academic, attendance, task and financial data scattered across different parts of their workflow, making personalized decisions difficult.
 
 ---
 
@@ -27,17 +27,13 @@
 
 > In 2–3 sentences: What did you build? How does it solve the problem above?
 
-[Describe your solution clearly. Explain the core mechanism — what makes it work.]
+CampusOS Copilot is a context-aware AI assistant integrated into CampusOS that reads relevant student data and provides personalized recommendations.
 
 ---
 
 ## ✨ Key Features
 
-- **Feature 1:** [Brief description — e.g., "Real-time anomaly detection using watsonx.ai"]
-- **Feature 2:** [Brief description]
-- **Feature 3:** [Brief description]
-- **Feature 4:** [Optional]
-- **Feature 5:** [Optional]
+Attendance insights, task prioritization, financial guidance, academic performance analysis, persistent chat, responsive drawer UI.
 
 ---
 
@@ -45,6 +41,7 @@
 
 | Category | Technologies |
 |---|---|
+HTML, CSS, JavaScript, IndexedDB, Gemini API, GitHub.
 | **Languages** | [e.g., Python, TypeScript] |
 | **Frameworks** | [e.g., FastAPI, React] |
 | **IBM Technologies** | [e.g., watsonx.ai, IBM Bob, IBM Cloud] |
